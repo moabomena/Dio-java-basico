@@ -2,24 +2,24 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class ContaTerminal {
-    public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
+        public static void main(String[] args) throws Exception {
+        try (Scanner scanner = new Scanner(System.in).useLocale(Locale.US)) {
+            System.out.println("Seja bem vindo ao Banco xpto");
 
-        System.out.println("Seja bemvindo ao Banco xpto");
+            System.out.println("Digite o seu primeiro nome: ");
+            String nomeCompleto = scanner.next();
 
-        System.out.println("Digite o seu nome completo: ");
-        String nomeCompleto = scanner.next();
+            System.out.println("Digite o número da sua conta bancária: ");
+            int numeroConta = scanner.nextInt();
 
-        System.out.println("Digite o numero da sua conta bancária: ");
-        int numeroConta = scanner.nextInt();
+            System.out.println("Digite o número da sua agência:");
+            String agencia = scanner.next();
 
-        System.out.println("Digite o numero da sua agencia:");
-        String agencia = scanner.next();
+            System.out.println("Digite o saldo atual da sua conta:");
+            double saldo = scanner.nextDouble();
 
-        System.out.println("Digite o saldo atual da sua conta:");
-        double saldo = scanner.nextDouble();
-
-        mostrarMensagem(nomeCompleto, agencia, numeroConta, saldo); 
+            mostrarMensagem(nomeCompleto, agencia, numeroConta, saldo);
+        } 
 
     }
 
